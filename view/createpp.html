@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript" src="jq.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+创建班名:<input type="text" id="name">
+<button onclick="fc()">确认</button>
+
+<a id="url" href=""></a>
+<script>
+    function fc(){
+        $.ajax({
+            url: "createclass",
+            type:"POST",
+            dataType: "json",
+            data:JSON.stringify({"name":$("#name").val()}),
+            success: function( result ) {
+                alert("成功");
+                $("#url").attr("href",result);
+                $("#url").text(result);
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  app:
+      image: localhost:5000/sifan/darling
+      container_name: darling
+      ports:
+        - 9090:9090
+      networks:
+        - local.app
+networks:
+    local.app:
+      name: local.app
